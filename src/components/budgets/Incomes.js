@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { BASE_URL, OUTCOMES_ENDPOINT } from "../../constants/api";
+import { BASE_URL, INCOMES_ENDPOINT } from "../../constants/api";
 import useAxios from "../../hooks/useAxios";
 import { Container } from "react-bootstrap";
-import styles from "./Calculator.module.css";
-import moment from "moment";
+import styles from "./Incomes.module.css";
 
-export default function Calculator() {
+export default function Incomes() {
   const [incomes, setIncomes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,7 +14,7 @@ export default function Calculator() {
   useEffect(() => {
     async function getAllIncomes() {
       try {
-        const response = await http.get(`${BASE_URL}${OUTCOMES_ENDPOINT}`);
+        const response = await http.get(`${BASE_URL}${INCOMES_ENDPOINT}`);
         console.log(response);
         setIncomes(response.data);
       } catch (error) {
@@ -38,50 +37,25 @@ export default function Calculator() {
         <div className={styles.incomeswrap}>
           {incomes.map((income) => {
             console.log(incomes);
-            const fromDate = moment(income.datefrom).format("DD MM YYYY");
-            const toDate = moment(income.dateto).format("DD MM YYYY");
+
             return (
               <div
                 className={styles.incomeswrap}
                 className="table-responsive"
                 key={income.id}
               >
-                <b>
-                  Income: {income.hotelname}
-                  {income.babname}
-                  {income.ghname}
-                </b>
                 <table className="table table-striped">
                   <tbody>
                     <tr className={styles.incomeswrap}>
                       <td className={styles.tdbox}>
-                        <b>Name:</b> {income.lastname}, {income.firstname}
+                        <b>Name:</b> {income.ititle}
                       </td>
 
                       <td className={styles.tdboxmail}>
-                        <b>Email:</b> <br />
-                        {income.email}
-                      </td>
-                      <td className={styles.tdbox}>
-                        <b>Telephone:</b> {income.telephone}
-                      </td>
-                      <td className={styles.tdbox}>
-                        <b>
-                          Period: <br />{" "}
-                        </b>{" "}
-                        {fromDate} {toDate}
+                        <b>NOK:</b>
+                        {income.incomenumber}
                       </td>
 
-                      <td className={styles.tdbox}>
-                        <b>
-                          Persons:
-                          <br />
-                        </b>{" "}
-                        {income.persons}
-                      </td>
-                      <td className={styles.tdboxmessage}>
-                        <b>Message:</b> <br /> {income.message}
-                      </td>
                       <td className={styles.tdbox}>
                         {/*    <DeleteButtonIncomes */}
                         {/*    id={income.id}

@@ -3,7 +3,7 @@
 }
 
 .button {
-  background-color: #05c5ff;
+  background-color: #ff0000;
   border-radius: 5px;
   display: inline-block;
   cursor: pointer;
@@ -25,7 +25,10 @@
   top: 1px;
 }
 .navbar {
-  border: rebeccapurple solid;
   display: flex;
   margin: 1rem;
+}
+
+.link {
+  margin-right: 1rem;
 }
