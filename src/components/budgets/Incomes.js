@@ -3,6 +3,7 @@ import { BASE_URL, INCOMES_ENDPOINT } from "../../constants/api";
 import useAxios from "../../hooks/useAxios";
 import { Container } from "react-bootstrap";
 import styles from "./Incomes.module.css";
+import Outcomes from "./Outcomes";
 
 export default function Incomes() {
   const [incomes, setIncomes] = useState([]);
