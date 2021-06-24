@@ -20,7 +20,6 @@ export default function Incomes() {
         setIncomes(response.data);
       } catch (error) {
         setError(error);
-        console.log(error);
       } finally {
         setLoading(false);
       }
@@ -37,8 +36,6 @@ export default function Incomes() {
         <h1> Incomes </h1>
         <div className={styles.incomeswrap}>
           {incomes.map((income) => {
-            console.log(incomes);
-
             return (
               <div
                 className={styles.incomeswrap}
@@ -48,21 +45,11 @@ export default function Incomes() {
                 <table className="table table-striped">
                   <tbody>
                     <tr className={styles.incomeswrap}>
-                      <td className={styles.tdbox}>
-                        <b>Name:</b> {income.ititle}
-                      </td>
+                      <td className={styles.tdbox}>{income.ititle}</td>
 
                       <td className={styles.tdboxmail}>
                         <b>NOK:</b>
                         {income.incomenumber}
-                      </td>
-
-                      <td className={styles.tdbox}>
-                        {/*    <DeleteButtonIncomes */}
-                        {/*    id={income.id}
-                        lastname={income.lastname}
-                        firstname={income.firstname}
-                        /> */}
                       </td>
                     </tr>
                   </tbody>
